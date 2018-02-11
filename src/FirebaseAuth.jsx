@@ -55,6 +55,9 @@ export default class FirebaseAuth extends React.Component {
     if (this.uiCallback) {
       this.uiCallback(this.firebaseUiWidget);
     }
+    if (this.uiConfig.credentialHelper) {
+      this.uiConfig.credentialHelper = firebaseui.auth.CredentialHelper[this.uiConfig.credentialHelper];
+    }
     this.firebaseUiWidget.start('#' + this.elementId, this.uiConfig);
   }
 
